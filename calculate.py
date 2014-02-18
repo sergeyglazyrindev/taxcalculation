@@ -3,7 +3,7 @@
 import datetime
 import time
 
-from customs.tasks import calculate_customs
+from tax.tasks import calculate
 import config
 
 

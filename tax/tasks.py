@@ -3,7 +3,7 @@ from collections import deque
 from .models import Incoming, Outcoming
 
 
-def calculate_customs(data):
+def calculate(data):
     def get_currency_exchange(date):
         return data['currency_exchanges'][date]
 
@@ -46,4 +46,4 @@ def calculate_customs(data):
     # let's calculate how much money left in our bank account in the end of the accounting period
     for i_item in incoming_queue:
         revenue = revenue + i_item.use(i_item.amount, get_currency_exchange('remainder'))[0]
-    print "Total revenue {} grn, customs is {}".format(revenue, round(revenue * data['custom_percent'] / 100., 2))
+    print "Total revenue {} grn, tax is {}".format(revenue, round(revenue * data['tax_percent'] / 100., 2))

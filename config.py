@@ -40,5 +40,5 @@ def get_config_for_calculations():
         'sold': sold,
         'sell_immediately': percent_to_sell_immediately,
         'currency_exchanges': currency_exchanges,
-        'custom_percent': 5
+        'tax_percent': 5
     }
