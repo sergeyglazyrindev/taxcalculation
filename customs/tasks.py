@@ -1,11 +1,9 @@
-import pprint
 from collections import deque
 
 from .models import Incoming, Outcoming
 
 
 def calculate_customs(data):
-#    pprint.pprint(data)
     def get_currency_exchange(date):
         return data['currency_exchanges'][date]
 
@@ -14,7 +12,7 @@ def calculate_customs(data):
     sold_queue = deque((Outcoming(data['sold'][date], get_currency_exchange(date)) for date in sorted(data['sold'].keys())))
 
     revenue = 0.
-    # let's iterate over incoming queue
+    # let's iterate through incoming queue
     while True:
         if not incoming_queue:
             break
@@ -23,6 +21,7 @@ def calculate_customs(data):
         if data.get('sell_immediately'):
             use_amount_immediately = round(data['sell_immediately'] * i_item.amount / 100., 2)
             revenue = revenue + i_item.use(use_amount_immediately)[0]
+        # let's iterate through sold queue
         while True:
             if not sold_queue:
                 break
@@ -43,7 +42,7 @@ def calculate_customs(data):
             # if we have no sold events in queue, simply break the loop
             if not sold_queue:
                 break
-            
+
     # let's calculate how much money left in our bank account in the end of the accounting period
     for i_item in incoming_queue:
         revenue = revenue + i_item.use(i_item.amount, get_currency_exchange('remainder'))[0]

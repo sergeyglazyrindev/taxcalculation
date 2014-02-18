@@ -29,7 +29,7 @@ incoming = {
     get_timestamp_from_date_string('07/10/2013'): 0,
     get_timestamp_from_date_string('07/11/2013'): 0,
     get_timestamp_from_date_string('06/12/2013'): 0,
-    get_timestamp_from_date_string('19/12/2013'): 0	
+    get_timestamp_from_date_string('19/12/2013'): 0
 }
 
 sold = {
