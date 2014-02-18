@@ -4,11 +4,11 @@ import datetime
 import time
 
 from customs.tasks import calculate_customs
-import data
+import config
 
 
 def run():
-    calculate_customs(data.get_config_for_calculations())
+    calculate_customs(config.get_config_for_calculations())
 
 
 if __name__ == '__main__':
