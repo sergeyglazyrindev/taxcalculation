@@ -30,7 +30,7 @@ incoming = {
 sold = {
     get_timestamp_from_date_string('01/11/2013'): 100,
     get_timestamp_from_date_string('03/12/2013'): 200,
-    get_timestamp_from_date_string('17/12/2013'): 200
+    get_timestamp_from_date_string('17/12/2013'): 100
 }
 
 
