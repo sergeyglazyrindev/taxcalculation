@@ -30,14 +30,14 @@ def calculate_customs(data):
             # let's use sell amount as well
             sold_item.use(really_used)
             revenue = revenue + _revenue
-            if i_item.amount == 0:
+            if i_item.is_used():
                 # if we used whole incoming money, let's break the loop
-                if sold_item.amount > 0:
+                if not sold_item.is_used():
                     # but if we are not used whole sold_item, let's put it again to queue
                     sold_queue.appendleft(sold_item)
                 break
         # insert incoming item as not used
-        if i_item.amount > 0:
+        if not i_item.is_used():
             incoming_queue.appendleft(i_item)
             # if we have no sold events in queue, simply break the loop
             if not sold_queue:

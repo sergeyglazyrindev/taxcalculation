@@ -11,6 +11,9 @@ class MoneyObject(object):
         self.amount = round(self.amount - really_used, 2)
         return round(really_used * max(self.currency_exchange, currency_exchange), 2), really_used
 
+    def is_used(self):
+        return not self.amount
+
 
 class Incoming(MoneyObject):
     pass
